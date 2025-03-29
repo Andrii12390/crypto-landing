@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <div class="blurry-dot blurry-dot--1"></div>
+        <div class="header__inner">
+            <div class="header__logo-container">
+                <a href="/" class="header__logo-link">
+                    <img src="assets/logo.svg" alt="Logo" class="header__logo-icon">
+                </a>
+            </div>
+            <nav class="header__nav">
+                <span class="header__menu-toggle" id="burger">☰</span>
+                <ul class="header__nav-list" id="menu">
+                    <li class="header__nav-item">Home</li>
+                    <li class="header__nav-item">Trade</li>
+                    <li class="header__nav-item">Market</li>
+                    <li class="header__nav-item">Learn</li>
+                    <li class="header__nav-item">Support</li>
+                </ul>
+            </nav>
+            <div class="header__actions">
+                <a href="/" class="header__sign-up-button">Sign Up</a>
+                <button class="header__menu-button">
+                    <img src="assets/ellipsis-vertical.svg" alt="Menu button" class="header__menu-icon">
+                </button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="blurry-dot blurry-dot--2"></div>
+            <div class="blurry-dot blurry-dot--3"></div>
+            <div class="blurry-dot blurry-dot--4"></div>
+            <div class="hero__inner">
+                <div class="hero__icon-wrapper hero__icon-wrapper--bitcoin">
+                    <img src="assets/currencies/bitcoin.svg" alt="Bitcoin" class="hero__bitcoin-icon">
+                </div>
+                <div class="hero__icon-wrapper hero__icon-wrapper--ethereum">
+                    <img src="assets/currencies/ethereum.svg" alt="Ethereum" class="hero__ethereum-icon">
+                </div>
+                <div class="hero__icon-wrapper hero__icon-wrapper--doge">
+                    <img src="assets/currencies/doge.svg" alt="Doge" class="hero__doge-icon">
+                </div>
+                <div class="hero__icon-wrapper hero__icon-wrapper--solana">
+                    <img src="assets/currencies/solana.svg" alt="Solana" class="hero__solana-icon">
+                </div>
+                <h1 class="hero__title">
+                    Secure & Intuitive <br/> Crypto Trading
+                </h1>
+                <p class="hero__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod <br/> tempor incididunt ut labore et dolore magna aliqua.</p>
+                <div class="hero__actions">
+                    <button class="hero__button hero__button--primary">
+                        Get Started
+                    </button>
+                    <button class="hero__button">
+                        Start Trading
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section class="exchange-form">
+            <div class="blurry-dot blurry-dot--5"></div>
+            <div class="exchange-form__inner">
+                <div class="exchange-form__navigation">
+                    <button class="exchange-form__navigation-button selected">
+                        Buy
+                    </button>
+                    <div class="exchange-form__navigation-button">
+                        Sell
+                    </div>
+                </div>
+                <div class="exchange-form__actions">
+                    <div class="exchange-form__input">
+                        <p class="exchange-form__input-placeholder">
+                            I Will Spend
+                        </p>
+                        <div class="exchange-form__currency-select">
+                            <img src="assets/rupee.svg" alt="Rupee" class="exchange-form__currency-icon">
+                            <p class="exchange-form__currency-name">Rupee</p>
+                            <img src="assets/chevron-down.svg" alt="Chevron down" class="exchange-form__chevron-icon margin-left-sm">
+                        </div>
+                    </div>
+                    <img src="assets/right-left-arrow.svg" alt="Right-left arrow" class="exchange-form_right-left-icon">
+                    <div class="exchange-form__input">
+                        <p class="exchange-form__input-placeholder">
+                            I Will Receive
+                        </p>
+                        <div class="exchange-form__currency-select">
+                            <img src="assets/btc.svg" alt="Rupee" class="exchange-form__currency-icon">
+                            <p class="exchange-form__currency-name">BTC</p>
+                            <img src="assets/chevron-down.svg" alt="Chevron down" class="exchange-form__chevron-icon margin-left-sm">
+                        </div>
+                    </div>
+                    <div class="exchange-form__action-button">Buy Crypto</div>
+                </div>
+            </div>
+        </section>
+        <section class="market">
+            <div class="blurry-dot blurry-dot--6"></div>
+            <div class="blurry-dot blurry-dot--7"></div>
+            <div class="blurry-dot blurry-dot--8"></div>
+            <div class="market__inner">
+                <a href="/" class="market__button-cta">
+                    Trade Crypto
+                </a>
+                <h2 class="market__title">
+                    Crypto Market Trade And Metrics
+                </h2>
+                <ul class="market__currency-list">
+                    <li class="market__currency-item">
+                        <div class="market__currency-item-inner">
+                            <div class="market__currency-name-wrapper">
+                                <div class="market__currency-icon-wrapper market__currency-icon-wrapper--yellow">
+                                    <img src="assets/currencies/bitcoin.svg" alt="Bitcoin" class="market__currency-icon">
+                                </div>
+                                <div class="market__currency-pair-wrapper">
+                                    <h3 class="market__currency-name">Bitcoin</h3>
+                                    <p class="market__inr">INR</p>
+                                </div>
+                            </div>
+                            <div class="market__currency-change-wrapper">
+                                <h3 class="market__currency-change">Change</h3>
+                                <p class="market__currency-percentage market__currency-percentage--positive">+14.04%</p>
+                            </div>
+                            <div class="market__price-wrapper">
+                                <h3 class="market__price-title">Price</h3>
+                                <p class="market__price">49,645 Inr</p>
+                            </div>
+                            <div class="market__chart-wrapper">
+                                <h3 class="market__chart-title">Chart</h3>
+                                <img src="assets/charts/bitcoin-chart.svg" alt="Bitcoin chart" class="market__chart" />
+                            </div>
+                        </div>
+                        <button class="market__trade-button">Trade</button>
+                    </li>
+                    <li class="market__currency-item">
+                        <div class="market__currency-item-inner">
+                            <div class="market__currency-name-wrapper">
+                                <div class="market__currency-icon-wrapper market__currency-icon-wrapper--purple">
+                                    <img src="assets/currencies/ethereum.svg" alt="Ethereum" class="market__currency-icon">
+                                </div>
+                                <div class="market__currency-pair-wrapper">
+                                    <h3 class="market__currency-name">Ethereum</h3>
+                                    <p class="market__inr">INR</p>
+                                </div>
+                            </div>
+                            <div class="market__currency-change-wrapper">
+                                <h3 class="market__currency-change">Change</h3>
+                                <p class="market__currency-percentage market__currency-percentage--positive">+43.04%</p>
+                            </div>
+                            <div class="market__price-wrapper">
+                                <h3 class="market__price-title">Price</h3>
+                                <p class="market__price">36.675 Inr</p>
+                            </div>
+                            <div class="market__chart-wrapper">
+                                <h3 class="market__chart-title">Chart</h3>
+                                <img src="assets/charts/ethereum-chart.svg" alt="Ethereum chart" class="market__chart" />
+                            </div>
+                        </div>
+                        <button class="market__trade-button">Trade</button>
+                    </li>
+                    <li class="market__currency-item">
+                        <div class="market__currency-item-inner">
+                            <div class="market__currency-name-wrapper">
+                                <div class="market__currency-icon-wrapper market__currency-icon-wrapper--green">
+                                    <img src="assets/currencies/solana.svg" alt="Solana" class="market__currency-icon">
+                                </div>
+                                <div class="market__currency-pair-wrapper">
+                                    <h3 class="market__currency-name">Solana</h3>
+                                    <p class="market__inr">INR</p>
+                                </div>
+                            </div>
+                            <div class="market__currency-change-wrapper">
+                                <h3 class="market__currency-change">Change</h3>
+                                <p class="market__currency-percentage market__currency-percentage--negative">-14.23%</p>
+                            </div>
+                            <div class="market__price-wrapper">
+                                <h3 class="market__price-title">Price</h3>
+                                <p class="market__price">1,456 Inr</p>
+                            </div>
+                            <div class="market__chart-wrapper">
+                                <h3 class="market__chart-title">Chart</h3>
+                                <img src="assets/charts/solana-chart.svg" alt="Solana chart" class="market__chart" />
+                            </div>
+                        </div>
+                        <button class="market__trade-button">Trade</button>
+                    </li>
+                    <li class="market__currency-item">
+                        <div class="market__currency-item-inner">
+                            <div class="market__currency-name-wrapper">
+                                <div class="market__currency-icon-wrapper market__currency-icon-wrapper--red">
+                                    <img src="assets/currencies/doge.svg" alt="Doge" class="market__currency-icon">
+                                </div>
+                                <div class="market__currency-pair-wrapper">
+                                    <h3 class="market__currency-name">Doge</h3>
+                                    <p class="market__inr">INR</p>
+                                </div>
+                            </div>
+                            <div class="market__currency-change-wrapper">
+                                <h3 class="market__currency-change">Change</h3>
+                                <p class="market__currency-percentage market__currency-percentage--positive">+17.06%</p>
+                            </div>
+                            <div class="market__price-wrapper">
+                                <h3 class="market__price-title">Price</h3>
+                                <p class="market__price">41.645 Inr</p>
+                            </div>
+                            <div class="market__chart-wrapper">
+                                <h3 class="market__chart-title">Chart</h3>
+                                <img src="assets/charts/doge-chart.svg" alt="Doge chart" class="market__chart" />
+                            </div>
+                        </div>
+                        <button class="market__trade-button">Trade</button>
+                    </li>
+                </ul>
+                <a class="market__view-other-button">
+                  View Other Crypto
+                </a>
+            </div>
+        </section>
+        <section class="learn-crypto">
+            <div class="learn-crypto__inner">
+                <a href="/" class="learn-crypto__cta-button">Learn crypto</a>
+                <h2 class="learn-crypto__title">Let's Know How Crypto Works</h2>
+                <p class="learn-crypto__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br/> incididunt ut labore et dolore magna aliqua.</p>
+                <div class="learn-crypto__benefits-grid">
+                    <figure class="learn-crypto__benefit-item learn-crypto__benefit-item--highlighted">
+                        <div class="learn-crypto__benefit-image-wrapper">
+                            <img src="assets/benefits/graduation-cap.svg" alt="Graduation cap" class="learn-crypto__benefit-image">
+                        </div>
+                        <p class="learn-crypto__benefit-text">
+                            Learn Crypto
+                        </p>
+                    </figure>
+                    <figure class="learn-crypto__benefit-item">
+                        <div class="learn-crypto__benefit-image-wrapper">
+                            <img src="assets/benefits/money-bag.svg" alt="Money bag" class="learn-crypto__benefit-image">
+                        </div>
+                        <p class="learn-crypto__benefit-text">
+                            Learn Earn
+                        </p>
+                    </figure>
+                    <figure class="learn-crypto__benefit-item">
+                        <div class="learn-crypto__benefit-image-wrapper">
+                            <img src="assets/benefits/statistics.svg" alt="Statistics graph" class="learn-crypto__benefit-image">
+                        </div>
+                        <p class="learn-crypto__benefit-text">
+                            How To Trade
+                        </p>
+                    </figure>
+                    <figure class="learn-crypto__benefit-item">
+                        <div class="learn-crypto__benefit-image-wrapper">
+                            <img src="assets/benefits/portfolio.svg" alt="Portfolio" class="learn-crypto__benefit-image">
+                        </div>
+                        <p class="learn-crypto__benefit-text">
+                            Build Portfolio
+                        </p>
+                    </figure>
+                </div>
+                <div class="learn-crypto__guides-grid">
+                    <figure class="learn-crypto__guide">
+                        <h3 class="learn-crypto__guide-title">
+                            Let’s learn How crypto<br/>Currency Work?
+                        </h3>
+                        <p class="learn-crypto__guide-text">
+                            Lorem ipsum dolor sit amet, consectetur<br/> adipiscing elit - Time data
+                        </p>
+                        <a href="/" class="learn-crypto__guide-link">Learn more</a>
+                    </figure>
+                    <figure class="learn-crypto__guide">
+                        <h3 class="learn-crypto__guide-title">
+                            Let’s learn How crypto<br/>Currency Work?
+                        </h3>
+                        <p class="learn-crypto__guide-text">
+                            Lorem ipsum dolor sit amet, consectetur<br/> adipiscing elit - Time data
+                        </p>
+                        <a href="/" class="learn-crypto__guide-link">Learn more</a>
+                    </figure>
+                    <figure class="learn-crypto__guide">
+                        <h3 class="learn-crypto__guide-title">
+                            Let’s learn How crypto<br/>Currency Work?
+                        </h3>
+                        <p class="learn-crypto__guide-text">
+                            Lorem ipsum dolor sit amet, consectetur<br/> adipiscing elit - Time data
+                        </p>
+                        <a href="/" class="learn-crypto__guide-link">Learn more</a>
+                    </figure>
+                    <figure class="learn-crypto__guide">
+                        <h3 class="learn-crypto__guide-title">
+                            Let’s learn How crypto<br/>Currency Work?
+                        </h3>
+                        <p class="learn-crypto__guide-text">
+                            Lorem ipsum dolor sit amet, consectetur<br/> adipiscing elit - Time data
+                        </p>
+                        <a href="/" class="learn-crypto__guide-link">Learn more</a>
+                    </figure>
+                    <figure class="learn-crypto__guide">
+                        <h3 class="learn-crypto__guide-title">
+                            Let’s learn How crypto<br/>Currency Work?
+                        </h3>
+                        <p class="learn-crypto__guide-text">
+                            Lorem ipsum dolor sit amet, consectetur<br/> adipiscing elit - Time data
+                        </p>
+                        <a href="/" class="learn-crypto__guide-link">Learn more</a>
+                    </figure>
+                    <figure class="learn-crypto__guide">
+                        <h3 class="learn-crypto__guide-title">
+                            Let’s learn How crypto<br/>Currency Work?
+                        </h3>
+                        <p class="learn-crypto__guide-text">
+                            Lorem ipsum dolor sit amet, consectetur<br/> adipiscing elit - Time data
+                        </p>
+                        <a href="/" class="learn-crypto__guide-link">Learn more</a>
+                    </figure>
+                </div>
+            </div>
+        </section>
+        <section class="faq">
+            <div class="blurry-dot blurry-dot--9"></div>
+            <div class="blurry-dot blurry-dot--10"></div>
+            <div class="faq__inner">
+                <a href="/" class="faq__cta-button">FAQs</a>
+                <h2 class="faq__title">Frequently Asked Questions</h2>
+                <p class="faq__text">
+                    Follow design trends and continually update your skills by
+                    <br/>
+                    learning new tools and techniques.
+                </p>
+                <div class="faq__questions-grid">
+                    <article class="faq__question">
+                        <h3 class="faq__question-text">
+                            What is cryptocurrency?
+                        </h3>
+                        <p class="faq__question-answer">
+                            Cryptocurrency is a digital currency secured by cryptography and operating on decentralized networks.
+                        </p>
+                    </article>
+                    <article class="faq__question">
+                        <h3 class="faq__question-text">
+                            How do I start investing in cryptocurrency?
+                        </h3>
+                        <p class="faq__question-answer">
+                            Choose a reliable exchange, create an account, complete verification, deposit funds, and buy cryptocurrencies.
+                        </p>
+                    </article>
+                    <article class="faq__question">
+                        <h3 class="faq__question-text">
+                            What is a blockchain?
+                        </h3>
+                        <p class="faq__question-answer">
+                            A blockchain is a distributed ledger that records transactions across a network of computers.
+                        </p>
+                    </article>
+                    <article class="faq__question">
+                        <h3 class="faq__question-text">
+                            How do I keep my cryptocurrency secure?
+                        </h3>
+                        <p class="faq__question-answer">
+                            Use strong passwords, enable two-factor authentication, and store your crypto in reputable wallets.
+                        </p>
+                    </article>
+                    <article class="faq__question">
+                        <h3 class="faq__question-text">
+                            What is a cryptocurrency wallet?
+                        </h3>
+                        <p class="faq__question-answer">
+                            A cryptocurrency wallet is a digital tool for storing, sending, and receiving cryptocurrencies.
+                        </p>
+                    </article>
+                    <article class="faq__question">
+                        <h3 class="faq__question-text">
+                            What are the most popular cryptocurrencies?
+                        </h3>
+                        <p class="faq__question-answer">
+                            Popular cryptocurrencies include Bitcoin, Ethereum, Binance Coin, Cardano, and Solana.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="cta">
+            <div class="blurry-dot blurry-dot--11"></div>
+            <div class="blurry-dot blurry-dot--12"></div>
+            <div class="cta__inner">
+                <div class="cta__left">
+                    <div class="cta__text-wrapper">
+                        <h2 class="cta__title">Get It On The Crypto Action</h2>
+                        <p class="cta__text">Provide easy access to customer support through chatbots or live<br/> chat features.</p>
+                    </div>
+                    <div class="cta__socials">
+                        <img src="assets/socials/facebook.svg" alt="Facebook logo" class="cta__social-icon">
+                        <img src="assets/socials/instagram.svg" alt="Instagram logo" class="cta__social-icon">
+                        <img src="assets/socials/telegram.svg" alt="Telegram logo" class="cta__social-icon">
+                    </div>
+
+                </div>
+                <div class="cta__inner-right">
+                    <form class="cta__form">
+                        <label class="cta__input-label">
+                            Email Address
+                            <input type="email" class="cta__input" placeholder="Enter Email Address" required>
+                        </label>
+                        <label class="cta__input-label">
+                            Your Topic
+                            <input type="text" class="cta__input" placeholder="Enter Your Topic" required>
+                        </label>
+                        <button class="cta__button" type="submit">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__grid">
+                <div class="footer__column">
+                    <h3 class="footer__column-title">Quick Link</h3>
+                    <ul class="footer__links-list">
+                        <li>
+                            <a href="/" class="footer__link">About Us</a>
+                        </li>
+                        <li>
+                            <a href="/" class="footer__link">Feature</a>
+                        </li>
+                        <li>
+                            <a href="/" class="footer__link">Career</a>
+                        </li>
+                        <li>
+                            <a href="/" class="footer__link">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h3 class="footer__column-title">Help</h3>
+                    <ul class="footer__links-list">
+                        <li>
+                            <a href="/" class="footer__link">Customer Support</a>
+                        </li>
+                        <li>
+                            <a href="/" class="footer__link">Terms</a>
+                        </li>
+                        <li>
+                            <a href="/" class="footer__link">Privacy</a>
+                        </li>
+                        <li>
+                            <a href="/" class="footer__link">FAQS</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h3 class="footer__column-title">Others</h3>
+                    <ul class="footer__links-list">
+                        <li>
+                            <a href="/" class="footer__link">Start Trading</a>
+                        </li>
+                        <li>
+                            <a href="/" class="footer__link">Earn Free Crypto</a>
+                        </li>
+                        <li>
+                            <a href="/" class="footer__link">Crypto Wallet</a>
+                        </li>
+                        <li>
+                            <a href="/" class="footer__link">Payment Option</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h3 class="footer__column-title">Download App</h3>
+                    <img src="assets/google-play.png" alt="Google play" class="footer__download-image">
+                    <img src="assets/app-store.png" alt="App store" class="footer__download-image">
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">© Copyright 2024, all right reserve by cryptodive</p>
+                <div class="footer__socials">
+                    <img src="assets/socials/amazon.svg" alt="Amazon" class="footer__social-icon">
+                    <img src="assets/socials/microsoft.svg" alt="Microsoft" class="footer__social-icon">
+                    <img src="assets/socials/twitter.svg" alt="Twitter" class="footer__social-icon">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('burger').addEventListener('click', () => {
+            document.getElementById('menu').classList.toggle('header__nav-list--show');
+        });
+
+    </script>
+</body>
+</html>

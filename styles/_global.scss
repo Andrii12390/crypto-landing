@@ -1,0 +1,100 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: 'Inter', sans-serif;
+}
+.margin-left-sm {
+  margin-left: 0.75rem;
+}
+.blurry-dot {
+  content: "";
+  position: absolute;
+  top: -10rem;
+  right: -10rem;
+  width: 30rem;
+  height: 30rem;
+  background: radial-gradient(closest-side, var(--blurry-dot), var(--background-color));
+  filter: blur(10rem);
+  z-index: 2;
+
+  &--1 {
+    right: -10rem;
+    top: -10rem;
+  }
+  &--2 {
+    right: -15rem;
+    top: -20rem;
+  }
+  &--3 {
+    left: 20%;
+    top: 15%;
+  }
+  &--4 {
+    right: 15%;
+    top: 45%
+  }
+  &--5 {
+    left: -10rem;
+    top: 10rem;
+  }
+  &--6 {
+    left: -10rem;
+    top: -20rem;
+  }
+  &--7 {
+    right: -10rem;
+    top: 40%;
+  }
+  &--8 {
+    left: 5%;
+    top: 80%;
+  }
+  &--9 {
+    left: -10rem;
+    top: 15%
+  }
+  &--10 {
+    right: -10rem;
+    top: 50%;
+  }
+  &--11 {
+    left: -15rem;
+    top: 25%;
+  }
+  &--12 {
+    right: -15rem;
+    top: 50%;
+  }
+}

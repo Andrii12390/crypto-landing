@@ -1,0 +1,91 @@
+.header {
+  position: relative;
+  z-index: 1;
+  font-size: var(--text-md);
+  padding: 2.4rem 4.8rem;
+  border-bottom: 1px solid var(--border-color-35);
+  background-color: var(--background-color);
+  overflow: hidden;
+
+  @media (max-width: 512px) {
+    padding: 2rem;
+  }
+
+  &__logo-icon {
+    @media (max-width: 512px) {
+        width: 12rem
+    }
+  }
+
+  &__menu-icon {
+    height: 3rem;
+    @media (max-width: 512px) {
+      height: 2.4rem;
+    }
+  }
+  &__menu-toggle {
+    display: none;
+    font-size: var(--text-xl);
+    color: var(--color-light);
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
+  &__inner {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__nav-list {
+    display: flex;
+    gap: 4rem;
+    color: var(--color-light);
+
+    @media (max-width: 768px) {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 6rem;
+      background-color: #101428;
+      width: 100%;
+      text-align: center;
+    }
+
+    &--show {
+      display: flex !important;
+      flex-direction: column;
+      background-color: red;
+    }
+  }
+  &__nav-item {
+    @media (max-width: 768px) {
+      display: block;
+      padding: 10px;
+      border-bottom: 1px solid #444;
+    }
+  }
+
+  &__actions {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap-sm);
+  }
+
+  &__sign-up-button {
+    text-wrap: nowrap;
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+    font-weight: 600;
+    padding: 1.2rem 2.4rem;
+    border-radius: 4rem;
+    border: 1px solid currentColor;
+  }
+}
+
+#header__menu-checkbox:checked ~ .header__nav-list {
+  display: flex;
+}
+
