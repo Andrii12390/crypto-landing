@@ -1,84 +1,56 @@
 .learn-crypto {
-  background-color: var(--background-color-learn-crypto);
+  background-color: $background-color-learn-crypto;
   padding: 12rem 0;
+  line-height: 1.5;
 
   &__inner {
+    @include flex-center(column, $gap-sm);
     max-width: 90%;
     margin-inline: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--gap-sm);
   }
 
   &__cta-button {
-    background-color: var(--color-primary-alpha-05);
+    @include font($color-primary, $text-xl, 500);
+    background-color: $color-primary-alpha-05;
     border-radius: 4rem;
     padding: 2.4rem 6rem;
-    color: var(--color-primary);
-    font-size: var(--text-xl);
-    font-weight: 500;
   }
 
   &__title {
-    text-align: center;
-    color: var(--color-light);
-    font-size: var(--text-4xl);
-    font-weight: 500;
-    @media (max-width: 512px) {
-      font-size: var(--text-3xl);
-    }
+    @include font($color-light, $text-4xl, 500, center);
   }
 
-  &__text {
-    color: var(--color-secondary);
-    text-align: center;
-    font-size: var(--text-md);
-    line-height: 1.5;
-    font-weight: 500;
+  &__description {
+    @include font($color-secondary, $text-md, 500, center);
   }
 
-  &__benefits-grid {
+  &__benefit-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--gap-lg);
-
-    @media (max-width: 1024px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @media (max-width: 512px) {
-      grid-template-columns: 1fr;
-    }
+    gap: $gap-lg;
   }
 
-  &__benefit-item {
-    background-color: var(--color-primary-alpha-10);
+  &__benefit {
+    @include flex-center(column, $gap-2xs);
+    background-color: $color-primary-alpha-10;
     padding: 3.2rem 4.2rem;
     border-radius: 4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--gap-2xs);
 
     &--highlighted {
-      border: 1px solid var(--color-primary);
+      border: 1px solid $color-primary;
     }
   }
 
   &__benefit-text {
-    color: var(--color-primary);
-    font-size: var(--text-md);
-    font-weight: 500;
+    @include font($color-primary, $text-md, 500);
   }
 
   &__benefit-image-wrapper {
-    background-color: var(--color-primary-alpha-15);
+    @include flex-center();
+    background-color: $color-primary-alpha-15;
     width: 8rem;
     height: 8rem;
     border-radius: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   &__benefit-image {
@@ -86,50 +58,60 @@
     height: 4.5rem;
   }
 
-  &__guides-grid {
-    gap: var(--gap-xs) var(--gap-md);
+  &__guide-grid {
+    gap: $gap-xs $gap-md;
     margin-top: 5rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+  }
 
-    @media (max-width: 1024px) {
+  &__guide {
+    @include flex-center(column, $gap-xs);
+    background-color: $color-primary-alpha-10;
+    padding: 4rem 2.5rem;
+    border-radius: 4rem;
+  }
+
+  &__guide-title {
+    @include font($color-light, $text-lg, 600, center);
+  }
+
+  &__guide-text {
+    @include font($color-light, $text-normal, 400, center);
+  }
+
+  &__guide-link {
+    @include font($color-primary, $text-md, 600);
+    @include hover-button($color-primary-alpha-20, $color-primary-alpha-15);
+    background-color: $color-primary-alpha-10;
+    border-radius: 4rem;
+    padding: 1.8rem 3.6rem;
+    border: 1px solid $color-primary;
+  }
+
+  @media (max-width: $md-screen) {
+    &__benefit-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-    @media (max-width: 1024px) {
+
+    &__guide-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: $sm-screen) {
+    &__guide-grid {
       grid-template-columns: 1fr;
     }
   }
 
-  &__guide {
-    background-color: var(--color-primary-alpha-10);
-    padding: 4rem 2.5rem;
-    border-radius: 4rem;
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-xs);
-    align-items: center;
-  }
+  @media (max-width: $xs-screen) {
+    &__title {
+      font-size: $text-3xl;
+    }
 
-  &__guide-title {
-    color: var(--color-light);
-    font-size: var(--text-lg);
-    font-weight: 600;
-    text-align: center;
-  }
-
-  &__guide-text {
-    color: var(--color-light);
-    font-size: var(--text-normal);
-    text-align: center;
-  }
-
-  &__guide-link {
-    background-color: var(--color-primary-alpha-10);
-    border-radius: 4rem;
-    padding: 1.8rem 3.6rem;
-    border: 1px solid var(--color-primary);
-    color: var(--color-primary);
-    font-size: var(--text-md);
-    font-weight: 600;
+    &__benefit-grid {
+      grid-template-columns: 1fr;
+    }
   }
 }

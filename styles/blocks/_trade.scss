@@ -1,0 +1,78 @@
+.trade {
+  position: relative;
+  z-index: 1;
+  background-color: $background-color;
+  padding: 6rem 0;
+
+  &__inner {
+    @include flex-center(column, $gap-md);
+    position: relative;
+    z-index: 3;
+    background-color: $color-light-alpha-05;
+    padding: 3.5rem 8rem 5rem 8rem;
+    width: fit-content;
+    margin-inline: auto;
+    border-radius: 1.6rem;
+  }
+
+  &__tabs {
+    display: inline-flex;
+    gap: $gap-xs;
+  }
+
+  &__tab-button {
+    @include font($color-light-alpha-70, $text-xl, 600);
+    position: relative;
+
+    &--selected {
+      color: $color-primary;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid currentColor;
+    }
+  }
+
+  &__actions {
+    @include flex-center(row, $gap-xs);
+  }
+
+  &__input {
+    background-color: $color-light-alpha-10;
+    display: flex;
+    padding: 1.5rem 1.2rem 1.5rem 2.2rem;
+    gap: $gap-xl;
+    border-radius: 0.7rem;
+
+    &-placeholder {
+      @include font($color-secondary, $text-sm, 500);
+    }
+  }
+  &__currency-select {
+    @include flex-center(row, 0.5rem);
+  }
+
+  &__currency-name {
+    @include font($color-light, $text-sm, 500);
+  }
+
+  &__action-button {
+    @include font($color-dark, $text-md, 600);
+    @include hover-button($color-primary-alpha-85, $color-primary-alpha-75);
+    cursor: pointer;
+    padding: 1.2rem 2.4rem;
+    background-color: $color-primary;
+    line-height: 1.5;
+    border-radius: 0.7rem;
+  }
+
+  @media (max-width: $md-screen) {
+    &__actions {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: $sm-screen) {
+    &__inner {
+      padding: 3rem 5rem;
+    }
+  }
+}

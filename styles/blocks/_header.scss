@@ -1,36 +1,17 @@
 .header {
-  position: relative;
-  z-index: 1;
-  font-size: var(--text-md);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  font-size: $text-md;
   padding: 2.4rem 4.8rem;
-  border-bottom: 1px solid var(--border-color-35);
-  background-color: var(--background-color);
-  overflow: hidden;
+  border-bottom: 1px solid $color-light-alpha-35;
+  background-color: rgba(16, 20, 40, 0.75);
+  backdrop-filter: blur(10px);
 
-  @media (max-width: 512px) {
-    padding: 2rem;
-  }
-
-  &__logo-icon {
-    @media (max-width: 512px) {
-        width: 12rem
-    }
-  }
-
-  &__menu-icon {
-    height: 3rem;
-    @media (max-width: 512px) {
-      height: 2.4rem;
-    }
-  }
-  &__menu-toggle {
+  &__open-menu-button {
     display: none;
-    font-size: var(--text-xl);
-    color: var(--color-light);
-    @media (max-width: 768px) {
-      display: block;
-    }
   }
+
   &__inner {
     position: relative;
     z-index: 3;
@@ -38,12 +19,62 @@
     align-items: center;
     justify-content: space-between;
   }
+
   &__nav-list {
     display: flex;
     gap: 4rem;
-    color: var(--color-light);
+    color: $color-light;
+  }
 
-    @media (max-width: 768px) {
+  &__nav-link {
+    @include hover-text($color-secondary, $color-primary);
+    color: $color-light;
+
+    &--active {
+      color: $color-primary;
+    }
+  }
+
+  &__menu {
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: $gap-sm;
+    position: fixed;
+    height: 100dvh;
+    inset: 0;
+    background-color: $background-color-alpha-70;
+    z-index: 1000;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.3s ease-in-out;
+
+    &--show {
+      display: flex;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__sign-up-button {
+    @include hover-button($color-primary-alpha-85, $color-primary-alpha-75);
+    text-wrap: nowrap;
+    display: inline-block;
+    background-color: $color-primary;
+    color: $color-dark;
+    font-weight: 600;
+    padding: 1.2rem 2.4rem;
+    border-radius: 4rem;
+    border: 1px solid currentColor;
+  }
+
+  @media (max-width: $sm-screen) {
+    &__open-menu-button{
+      display: block;
+    }
+
+    &__nav-list {
       display: none;
       flex-direction: column;
       position: absolute;
@@ -53,39 +84,20 @@
       text-align: center;
     }
 
-    &--show {
-      display: flex !important;
-      flex-direction: column;
-      background-color: red;
-    }
-  }
-  &__nav-item {
-    @media (max-width: 768px) {
-      display: block;
-      padding: 10px;
-      border-bottom: 1px solid #444;
+    &__nav {
+      order: 1;
     }
   }
 
-  &__actions {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--gap-sm);
-  }
+  @media (max-width: $xs-screen) {
+    padding: 2rem;
 
-  &__sign-up-button {
-    text-wrap: nowrap;
-    display: inline-block;
-    background-color: var(--color-primary);
-    color: var(--color-dark);
-    font-weight: 600;
-    padding: 1.2rem 2.4rem;
-    border-radius: 4rem;
-    border: 1px solid currentColor;
+    &__more-icon {
+      height: 2.4rem;
+    }
+
+    &__logo-icon {
+      width: 12rem
+    }
   }
 }
-
-#header__menu-checkbox:checked ~ .header__nav-list {
-  display: flex;
-}
-

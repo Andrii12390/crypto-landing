@@ -1,109 +1,74 @@
 .market {
   position: relative;
   z-index: 1;
-  background-color: var(--background-color);
+  background-color: $background-color;
   padding-top: 10rem;
   padding-bottom: 6rem;
   overflow: hidden;
 
   &__inner {
+    @include flex-center(column, $gap-md);
     max-width: 90%;
     margin-inline: auto;
     position: relative;
     z-index: 3;
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-md);
-    align-items: center;
   }
 
   &__button-cta {
+    @include font($color-primary, $text-xl, 500);
+    @include hover-button($color-primary-alpha-15, $color-primary-alpha-10);
     border-radius: 4rem;
     padding: 2.2rem 4.4rem;
-    background-color: var(--color-primary-alpha-05);
-    font-size: var(--text-xl);
-    font-weight: 500;
-    color: var(--color-primary);
+    background-color: $color-primary-alpha-05;
   }
+
   &__title {
-    text-align: center;
-    color: var(--color-light);
-    font-size: var(--text-4xl);
-    font-weight: 500;
-    @media (max-width: 512px) {
-      font-size: var(--text-3xl);
-    }
+    @include font($color-light, $text-4xl, 500, center);
   }
-  &__currency-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-sm);
-  }
-  &__currency-item {
-    display: flex;
-    align-items: center;
-    gap: var(--gap-lg);
 
-    @media (max-width: 1024px) {
-      gap: var(--gap-2xs);
-    }
-
-    @media (max-width: 768px) {
-      padding: 2rem;
-      border-radius: 5rem;
-      background-image: linear-gradient(to top, var(--color-light-alpha-05), var(--color-light-alpha-05)),
-      linear-gradient(to top, var(--background-color), var(--background-color));
-      background-size: contain;
-      justify-content: space-between;
-    }
+  &__list {
+    @include flex-center(column, $gap-sm);
+    align-items: stretch;
   }
-  &__currency-item-inner {
-    column-gap: var(--gap-xl);
+
+  &__item {
+    @include flex-center(row, $gap-lg);
+
+  }
+
+  &__item-inner {
     display: grid;
+    column-gap: $gap-xl;
     grid-template-columns: 20rem 12rem 12rem 12rem;
-    @media (max-width: 1024px) {
-      gap: var(--gap-2xs);
-    }
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-      column-gap: 2rem;
-    }
   }
 
-  &__currency-name-wrapper {
-    display: flex;
-    gap: var(--gap-2xs);
+  &__name-wrapper {
+    display: inline-flex;
+    gap: $gap-2xs;
   }
-  &__currency-icon-wrapper {
+
+  &__icon-wrapper {
+    @include flex-center(row);
     height: 6rem;
     width: 6rem;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
- &__currency-icon {
-   width: 3rem;
-   height: 3rem;
- }
-  &__currency-icon-wrapper--yellow {
-    background-color: var(--color-yellow);
   }
 
-  &__currency-icon-wrapper--purple {
-    background-color: var(--color-purple);
+   &__icon {
+     width: 3rem;
+     height: 3rem;
+   }
+
+  $icon-wrappers: (yellow: $color-yellow, purple: $color-purple, green: $color-green, red: $color-red);
+
+  @each $name, $color in $icon-wrappers {
+    &__icon-wrapper--#{$name} {
+      background-color: $color;
+    }
   }
 
-  &__currency-icon-wrapper--green {
-    background-color: var(--color-green);
-  }
-
-  &__currency-icon-wrapper--red {
-    background-color: var(--color-red);
-  }
-
-  &__currency-pair-wrapper,
-  &__currency-change-wrapper,
+  &__pair-wrapper,
+  &__change-wrapper,
   &__chart-wrapper {
     display: flex;
     flex-direction: column;
@@ -116,36 +81,34 @@
     flex-direction: column;
     justify-content: space-between;
   }
-  &__currency-name,
+  &__name,
   &__price {
-    font-size: var(--text-md);
-    font-weight: 600;
-    color: var(--color-light);
-  }
-  &__inr {
-    font-size: var(--text-sm);
-    text-transform: uppercase;
-    font-weight: 600;
-    color: var(--color-secondary);
-  }
-  &__currency-change,
-  &__price-title,
-  &__chart-title {
-    font-size: var(--text-md);
-    text-transform: uppercase;
-    font-weight: 600;
-    color: var(--color-secondary);
-  }
-  &__currency-percentage {
-    font-weight: 600;
-    font-size: var(--text-sm);
+    @include font($color-light, $text-md, 600);
   }
 
-  &__currency-percentage--positive {
-    color: var(--color-chart-positive)
+  &__inr {
+    @include font($color-secondary, $text-sm, 600);
+    text-transform: uppercase;
   }
-  &__currency-percentage--negative {
-    color: var(--color-chart-negative)
+
+  &__change,
+  &__price-title,
+  &__chart-title {
+    @include font($color-secondary, $text-md, 600);
+    text-transform: uppercase;
+  }
+
+  &__percentage {
+    font-weight: 600;
+    font-size: $text-sm;
+
+    &--positive {
+      color: $color-positive;
+    }
+
+    &--negative {
+      color: $color-negative;
+    }
   }
 
   &__chart {
@@ -154,37 +117,67 @@
   }
 
   &__trade-button {
-    height: fit-content;
-    background-color: var(--color-primary-alpha-10);
-    color: var(--color-primary);
+    @include font($color-primary, $text-md, 600);
+    @include hover-button($color-primary-alpha-20, $color-primary-alpha-15);
+    background-color: $color-primary-alpha-10;
     padding: 1.6rem 3.2rem;
     border-radius: 4.5rem;
-    font-size: var(--text-md);
-    font-weight: 600;
   }
+
   &__view-other-button {
+    @include font($color-primary, $text-lg, 600);
+    @include hover-button($color-primary-alpha-25, $color-primary-alpha-20);
     text-wrap: nowrap;
-    height: fit-content;
-    background-color: var(--color-primary-alpha-15);
-    border: 1px solid var(--color-primary);
-    color: var(--color-primary);
+    background-color: $color-primary-alpha-15;
+    border: 1px solid $color-primary;
     padding: 2rem 18rem;
     border-radius: 4rem;
-    font-size: 2rem;
-    font-weight: 600;
-    @media (max-width: 768px) {
-      padding-inline: 12rem;
+    cursor: pointer;
+  }
+
+  @media (max-width: $md-screen) {
+    &__item {
+      gap: $gap-2xs;
     }
-    @media (max-width: 512px) {
-      padding-inline: 6rem;
+
+    &__item-inner {
+      gap: $gap-2xs;
     }
   }
 
-  &__currency-change-wrapper,
-  &__chart-wrapper,
-  &__price-wrapper {
-    @media (max-width: 768px) {
-      display: none;
+  @media (max-width: $sm-screen) {
+    &__item {
+      padding: 2rem;
+      border-radius: 5rem;
+      background-image: linear-gradient(to top, $color-light-alpha-05, $color-light-alpha-05),
+      linear-gradient(to top, $background-color, $background-color);
+      background-size: contain;
+      justify-content: space-between;
+    }
+
+    &__item-inner {
+      grid-template-columns: 1fr;
+      column-gap: 2rem;
+    }
+
+    &__view-other-button {
+      padding-inline: 12rem;
+    }
+
+    &__change-wrapper,
+    &__chart-wrapper,
+    &__price-wrapper {
+        display: none;
+    }
+  }
+
+  @media (max-width: $xs-screen) {
+    &__title {
+      font-size: $text-3xl;
+    }
+
+    &__view-other-button {
+      padding-inline: 6rem;
     }
   }
 }

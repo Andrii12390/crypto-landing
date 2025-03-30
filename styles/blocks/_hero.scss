@@ -1,7 +1,7 @@
 .hero {
   position: relative;
-  background-color: var(--background-color);
-  height: calc(100dvh - var(--header-height));
+  background-color: $background-color;
+  height: calc(100dvh - $header-height);
   overflow: hidden;
 
   &__inner {
@@ -10,139 +10,121 @@
     position: relative;
     z-index: 2;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--gap-xs);
-
+    @include flex-center(column, $gap-xs);
   }
+
   &__title {
-    color: var(--color-primary);
-    font-size: var(--text-6xl);
-    text-align: center;
-    overflow: hidden;
-    font-weight: 700;
-
-    @media (max-width: 1024px) {
-      font-size: var(--text-5xl);
-    }
-    @media (max-width: 512px) {
-      font-size: var(--text-4xl);
-    }
-  }
-  &__text {
-    color: var(--color-light);
-    font-size: var(--text-md);
-    text-align: center;
+    @include font($color-primary, $text-6xl, 700, center)
   }
 
-  &__actions {
+  &__description {
+    @include font($color-light, $text-md, 400, center);
+  }
+
+  &__buttons {
     display: inline-flex;
-    gap: var(--gap-xs);
-    @media (max-width: 512px) {
-      gap: 1.6rem;
+    gap: $gap-xs;
+  }
+
+  $icons-regular: (
+    bitcoin: (color: $color-yellow, left: 15%, top: 20%, rotate: -25deg),
+    ethereum: (color: $color-purple, left: 20%, top: 55%, rotate: 20deg),
+    doge: (color: $color-red, right: 20%, top: 20%, rotate: 15deg),
+    solana: (color: $color-green, left: 75%, top: 60%, rotate: -15deg)
+  );
+
+  @each $name, $props in $icons-regular {
+    &__icon-wrapper--#{$name} {
+      background-color: map-get($props, color);
+      left: map-get($props, left);
+      top: map-get($props, top);
+      right: map-get($props, right);
+      rotate: map-get($props, rotate);
     }
   }
+
   &__icon-wrapper {
     padding: 2rem;
-
     border-radius: 50%;
     position: absolute;
-
-    @media (max-width: 512px) {
-      padding: 1rem;
-    }
-    &--bitcoin {
-      background-color: var(--color-yellow);
-      left: 15%;
-      transform: rotate(-25deg);
-      top: 20%;
-      @media (max-width: 512px) {
-        top: 13%;
-        left: 13%;
-      }
-    }
-    &--ethereum {
-      background-color: var(--color-purple);
-      left: 20%;
-      transform: rotate(20deg);
-      top: 55%;
-      @media (max-width: 1240px) {
-        top: 68%;
-      }
-      @media (max-width: 512px) {
-        top: 80%;
-      }
-    }
-    &--doge {
-      background-color: var(--color-red);
-      right: 20%;
-      transform: rotate(15deg);
-      top: 20%;
-
-      @media (max-width: 512px) {
-        top: 10%;
-        right: 5%;
-      }
-    }
-    &--solana {
-      background-color: var(--color-green);
-      left: 75%;
-      transform: rotate(-15deg);
-      top: 60%;
-      @media (max-width: 1240px) {
-        top: 70%;
-      }
-      @media (max-width: 512px) {
-        top: 85%;
-      }
-   }
   }
 
-  &__bitcoin-icon {
-    width: 3.4rem;
-    @media (max-width: 512px) {
-      width: 2.8rem;
-    }
-  }
+  $icons-size-regular: (bitcoin: 3.8rem, ethereum: 2.8rem, doge: 4.4rem, solana: 3rem);
 
-  &__ethereum-icon {
-    width: 2.8rem;
-    @media (max-width: 512px) {
-      width: 2.2rem;
-    }
-  }
-  &__doge-icon {
-    width: 4.4rem;
-    @media (max-width: 512px) {
-      width: 3.8rem;
-    }
-  }
-
-  &__solana-icon {
-    width: 3rem;
-    @media (max-width: 512px) {
-      width: 2.4rem;
+  @each $name, $size in $icons-size-regular {
+    &__#{$name}-icon {
+      width: $size;
     }
   }
 
   &__button {
-    color: var(--color-primary);
+    @include font($color-primary, $text-lg, 600);
+    @include hover-button($color-dark-alpha-25, $color-dark-alpha-10);
     border-radius: 4rem;
-    background-color: var(--color-dark);
+    background-color: $color-dark;
     border: 2px solid currentColor;
     padding: 2.3rem 4.6rem;
-    font-size: var(--text-lg);
-    font-weight: 600;
 
     &--primary {
-      background-color: var(--color-primary);
-      color: var(--color-dark);
+      @include hover-button($color-primary-alpha-85, $color-primary-alpha-75);
+      background-color: $color-primary;
+      color: $color-dark;
     }
-    @media (max-width: 512px) {
+  }
+
+  @media (max-width: $lg-screen) {
+    $icons-sm: (ethereum: (top: 68%), solana: (top: 70%));
+
+    @each $name, $props in $icons-sm {
+      &__icon-wrapper--#{$name} {
+        top: map-get($props, top);
+      }
+    }
+  }
+
+  @media (max-width: $md-screen) {
+    &__title {
+      font-size: $text-5xl;
+    }
+  }
+
+  @media (max-width: $xs-screen) {
+    &__buttons {
+      gap: 1.6rem;
+    }
+
+    &__button {
       padding: 1.5rem 3.2rem;
-      font-size: var(--text-sm);
+      font-size: $text-sm;
+    }
+
+    &__icon-wrapper {
+      padding: 1rem;
+    }
+
+    &__title {
+      font-size: $text-4xl;
+    }
+
+    $icons-xs: (
+      bitcoin: (top: 13%, left: 13%),
+      ethereum: (top: 80%),
+      doge: (top: 10%, right: 5%),
+      solana: (top: 85%)
+    );
+
+    @each $name, $props in $icons-xs {
+      &__icon-wrapper--#{$name} {
+        top: map-get($props, top);
+      }
+    }
+
+    $icons-size-sm: (bitcoin: 2.8rem, ethereum: 2.2rem, doge: 3.8rem, solana: 2.4rem);
+
+    @each $name, $size in $icons-size-sm {
+      &__#{$name}-icon {
+        width: $size;
+      }
     }
   }
 }
