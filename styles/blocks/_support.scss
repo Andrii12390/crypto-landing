@@ -31,7 +31,7 @@
   }
 
   &__title {
-    @include font($color-light, $text-4xl, 400, center);
+    @include font($color-light, $text-4xl, 400);
   }
 
   &__description {
@@ -47,8 +47,9 @@
   &__social-icon {
     width: 4rem;
     height: 4rem;
-    transition: filter 0.2s ease-in-out;
+    transition: filter 0.2s ease-in-out, scale 0.2s ease-in-out;
     &:hover {
+      scale: 1.05;
       filter: invert(0.2);
     }
   }
@@ -95,6 +96,10 @@
       align-items: center;
     }
 
+    &__title {
+      text-align: center;
+    }
+
     &__left {
       gap: $gap-xs;
     }
@@ -114,6 +119,7 @@
 
   @media (max-width: $xs-screen) {
     &__title {
+      text-align: center;
       font-size: $text-3xl;
     }
   }

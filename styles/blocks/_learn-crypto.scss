@@ -30,15 +30,20 @@
     gap: $gap-lg;
   }
 
+  &__benefit-grid:hover &__benefit:not(:hover) {
+    transform: scale(0.95) !important;
+  }
+
+  &__benefit-grid &__benefit:hover {
+    transform: scale(1.05) !important;
+  }
+
   &__benefit {
     @include flex-center(column, $gap-2xs);
     background-color: $color-primary-alpha-10;
     padding: 3.2rem 4.2rem;
     border-radius: 4rem;
-
-    &--highlighted {
-      border: 1px solid $color-primary;
-    }
+    transition: transform 0.3s ease-in-out !important;
   }
 
   &__benefit-text {

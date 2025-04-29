@@ -1,0 +1,28 @@
+{
+  "name": "crypto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andrii12390/crypto-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Andrii12390/crypto-web/issues"
+  },
+  "homepage": "https://github.com/Andrii12390/crypto-web#readme",
+  "devDependencies": {
+    "vite": "^6.3.3"
+  },
+  "dependencies": {
+    "gsap": "^3.12.7"
+  }
+}

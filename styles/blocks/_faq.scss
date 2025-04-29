@@ -29,34 +29,61 @@
     @include font($color-secondary, $text-md, 500, center);
   }
 
-  &__question-grid {
+  &__question-container {
+    @include flex-center(column, $gap-xs);
+    max-width: 90rem;
     margin-top: 6rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: $gap-sm;
   }
 
   &__question {
+    transition: max-height 0.4s ease, opacity 0.4s ease;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-
-  &__question:not(:nth-last-child(-n+2))::after {
-    content: "";
     width: 100%;
-    height: 1.5px;
-    background-color: $color-muted;
-    margin-top: 2rem;
+    border-bottom: 2px solid $color-light-alpha-25;
+    padding-bottom: 2rem;
+    cursor: pointer;
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-text {
+      @include font($color-light, $text-lg, 500);
+    }
+
+    &-answer {
+      margin-top: 1rem;
+      @include font($color-secondary, $text-md, 500);
+    }
+
+    &-icon {
+      transition: all 0.3s ease;
+      width: 1.6rem;
+    }
+
+    &-content {
+      max-height: 0;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .active &-icon {
+      transform: rotate(180deg);
+    }
+
+    .active &-content {
+      height: auto;
+      max-height: 20rem;
+      opacity: 1;
+    }
   }
 
-  &__question-text {
-    @include font($color-light, $text-lg, 500);
-  }
-
-  &__question-answer {
-    @include font($color-secondary, $text-md, 500);
+  &__question:last-child {
+    border-bottom: none;
   }
 
   @media (max-width: $md-screen) {

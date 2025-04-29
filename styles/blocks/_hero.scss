@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   background-color: $background-color;
-  height: calc(100dvh - $header-height);
+  height: 100dvh;
   overflow: hidden;
 
   &__inner {
@@ -59,11 +59,12 @@
 
   &__button {
     @include font($color-primary, $text-lg, 600);
-    @include hover-button($color-dark-alpha-25, $color-dark-alpha-10);
+    @include hover-button($color-dark-alpha-10, $color-dark-alpha-25);
     border-radius: 4rem;
     background-color: $color-dark;
     border: 2px solid currentColor;
     padding: 2.3rem 4.6rem;
+
 
     &--primary {
       @include hover-button($color-primary-alpha-85, $color-primary-alpha-75);

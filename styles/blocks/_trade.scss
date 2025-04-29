@@ -15,7 +15,7 @@
     border-radius: 1.6rem;
   }
 
-  &__tabs {
+  &__tabs-controls {
     display: inline-flex;
     gap: $gap-xs;
   }
@@ -23,49 +23,132 @@
   &__tab-button {
     @include font($color-light-alpha-70, $text-xl, 600);
     position: relative;
+    padding-bottom: 1rem;
+    color: $color-light-alpha-70;
 
-    &--selected {
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0; right: 0;
+      height: 2px;
+      background-color: currentColor;
+      transform: scaleX(0);
+      transition: transform 0.2s ease-in-out;
+    }
+
+    &--active,
+    &:hover {
       color: $color-primary;
-      padding-bottom: 1rem;
-      border-bottom: 2px solid currentColor;
+      &::after {
+        transform: scaleX(1);
+      }
     }
   }
 
-  &__actions {
+  &__tab-content {
+    display: none;
+    &--active {
+      @include flex-center(row, $gap-xs);
+    }
+  }
+
+  &__input-block {
+    background-color: $color-light-alpha-10;
+    display: flex;
     @include flex-center(row, $gap-xs);
+
+    padding: 1.5rem 2rem;
+    gap: $gap-2xs;
+    border-radius: 0.7rem;
   }
 
   &__input {
-    background-color: $color-light-alpha-10;
-    display: flex;
-    padding: 1.5rem 1.2rem 1.5rem 2.2rem;
-    gap: $gap-xl;
-    border-radius: 0.7rem;
+    @include font($color-secondary, $text-sm, 500);
+    width: 10rem;
+  }
 
-    &-placeholder {
-      @include font($color-secondary, $text-sm, 500);
+  .trade__select {
+    @include font($color-light, $text-sm, 500);
+    position: relative;
+    display: inline-block;
+    width: 12rem;
+    user-select: none;
+
+    &-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+
+      .trade__chevron-icon {
+        transition: transform 0.15s;
+      }
+    }
+
+    &-options {
+      position: absolute;
+      border-radius: 0.8rem;
+      overflow: hidden;
+      top: calc(100% + 0.4rem);
+      left: 0;
+      width: 100%;
+      background: $color-light-alpha-25;
+      opacity: 0;
+      transition: max-height 0.15s, opacity 0.15s;
+      pointer-events: none;
+    }
+
+    &-option {
+      @include flex-center(row, 1rem);
+      justify-content: start;
+      overflow: hidden;
+      padding: 0.6rem;
+      cursor: pointer;
+
+      &:hover {
+        background: $color-light-alpha-25;
+      }
+    }
+    .trade__select-option:first-child {
+      border-top-left-radius: 0.8rem;
+      border-top-right-radius: 0.8rem;
+    }
+    .trade__select-option:last-child {
+      border-bottom-left-radius: 0.8rem;
+      border-bottom-right-radius: 0.8rem;
+    }
+
+    &--open {
+      .trade__select-options {
+        max-height: 30rem;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .trade__chevron-icon {
+        transform: rotate(-180deg);
+      }
     }
   }
-  &__currency-select {
-    @include flex-center(row, 0.5rem);
-  }
 
-  &__currency-name {
-    @include font($color-light, $text-sm, 500);
+  &__currency-icon {
+    width: 2rem;
   }
-
   &__action-button {
     @include font($color-dark, $text-md, 600);
     @include hover-button($color-primary-alpha-85, $color-primary-alpha-75);
     cursor: pointer;
-    padding: 1.2rem 2.4rem;
+    padding: 1.1rem 2.4rem;
+    min-width: 15rem;
+    text-align: center;
     background-color: $color-primary;
     line-height: 1.5;
     border-radius: 0.7rem;
   }
 
   @media (max-width: $md-screen) {
-    &__actions {
+    &__tab-content {
       flex-direction: column;
     }
   }

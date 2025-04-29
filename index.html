@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
     <link rel="stylesheet" href="styles/style.css">
-    <title>Document</title>
-    <script src="scripts/script.js" defer></script>
+    <title>Crypto Landing</title>
+    <script src="scripts/script.js" type="module" defer></script>
+    <script src="scripts/animations.js" type="module" defer></script>
 </head>
 <body>
     <div id="home" class="page-section"></div>
@@ -91,10 +97,10 @@
                     eiusmod <br/> tempor incididunt ut labore et dolore magna aliqua.</p>
                 <div class="hero__buttons">
                     <button class="hero__button hero__button--primary">
-                        Get Started
+                        <span>Get Started</span>
                     </button>
                     <button class="hero__button">
-                        Start Trading
+                        <span>Start Trading</span>
                     </button>
                 </div>
             </div>
@@ -102,37 +108,122 @@
         <section class="trade page-section" id="trade">
             <div class="blurry-dot blurry-dot--5"></div>
             <div class="trade__inner">
-                <div class="trade__tabs">
-                    <button class="trade__tab-button trade__tab-button--selected">
+                <div class="trade__tabs-controls">
+                    <button class="trade__tab-button trade__tab-button--active" data-tab="buy">
                         Buy
                     </button>
-                    <div class="trade__tab-button">
+                    <button class="trade__tab-button" data-tab="sell">
                         Sell
-                    </div>
+                    </button>
                 </div>
-                <div class="trade__actions">
-                    <div class="trade__input">
-                        <p class="trade__input-placeholder">
-                            I Will Spend
-                        </p>
-                        <div class="trade__currency-select">
-                            <img src="assets/other/rupee.svg" alt="Rupee" class="trade__currency-icon">
-                            <p class="trade__currency-name">Rupee</p>
-                            <img src="assets/other/chevron-down.svg" alt="Chevron down" class="trade__chevron-icon margin-left-sm">
+                <div class="trade__tab-content trade__tab-content--active" id="buy">
+                    <div class="trade__input-block">
+                        <input class="trade__input" placeholder="I Will spend">
+                        <div class="trade__select">
+                            <input type="hidden" name="currency" value="INR">
+                            <div class="trade__select-trigger">
+                                <img src="assets/other/btc.svg" alt="Rupee" class="trade__currency-icon">
+                                <span>Rupee</span>
+                                <img
+                                    src="assets/other/chevron-down.svg"
+                                    alt="Chevron down"
+                                    class="trade__chevron-icon"
+                                >
+                            </div>
+                            <ul class="trade__select-options">
+                                <li class="trade__select-option" data-value="INR">
+                                    <img src="assets/other/rupee.svg"  alt="Rupee" class="trade__currency-icon">
+                                    <span>Rupee</span>
+                                </li>
+                                <li class="trade__select-option" data-value="BTC">
+                                    <img src="assets/other/btc.svg" alt="Bitcoin" class="trade__currency-icon">
+                                    <span>Bitcoin</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     <img src="assets/other/right-left-arrow.svg" alt="Right-left arrow" class="trade_right-left-icon">
-                    <div class="trade__input">
-                        <p class="trade__input-placeholder">
-                            I Will Receive
-                        </p>
-                        <div class="trade__currency-select">
-                            <img src="assets/other/btc.svg" alt="Rupee" class="trade__currency-icon">
-                            <p class="trade__currency-name">BTC</p>
-                            <img src="assets/other/chevron-down.svg" alt="Chevron down" class="trade__chevron-icon margin-left-sm">
+                    <div class="trade__input-block">
+                        <input class="trade__input" placeholder="I Will receive">
+
+                        <div class="trade__select">
+                            <input type="hidden" name="currency" value="INR">
+                            <div class="trade__select-trigger">
+                                <img src="assets/other/btc.svg" alt="Rupee" class="trade__currency-icon">
+                                <span>Rupee</span>
+                                <img
+                                    src="assets/other/chevron-down.svg"
+                                    alt="Chevron down"
+                                    class="trade__chevron-icon"
+                                >
+                            </div>
+                            <ul class="trade__select-options">
+                                <li class="trade__select-option" data-value="INR">
+                                    <img src="assets/other/rupee.svg"  alt="Rupee" class="trade__currency-icon">
+                                    <span>Rupee</span>
+                                </li>
+                                <li class="trade__select-option" data-value="BTC">
+                                    <img src="assets/other/btc.svg" alt="Bitcoin" class="trade__currency-icon">
+                                    <span>Bitcoin</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     <div class="trade__action-button">Buy Crypto</div>
+                </div>
+                <div class="trade__tab-content" id="sell">
+                    <div class="trade__input-block">
+                        <input class="trade__input" placeholder="I Will spend">
+                        <div class="trade__select">
+                            <input type="hidden" name="currency" value="INR">
+                            <div class="trade__select-trigger">
+                                <img src="assets/other/btc.svg" alt="Rupee" class="trade__currency-icon">
+                                <span>Rupee</span>
+                                <img
+                                    src="assets/other/chevron-down.svg"
+                                    alt="Chevron down"
+                                    class="trade__chevron-icon">
+                            </div>
+                            <ul class="trade__select-options">
+                                <li class="trade__select-option" data-value="INR">
+                                    <img src="assets/other/rupee.svg"  alt="Rupee" class="trade__currency-icon">
+                                    <span>Rupee</span>
+                                </li>
+                                <li class="trade__select-option" data-value="BTC">
+                                    <img src="assets/other/btc.svg" alt="Bitcoin" class="trade__currency-icon">
+                                    <span>Bitcoin</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <img src="assets/other/right-left-arrow.svg" alt="Right-left arrow" class="trade_right-left-icon">
+                    <div class="trade__input-block">
+                        <input class="trade__input" placeholder="I Will receive">
+
+                        <div class="trade__select">
+                            <input type="hidden" name="currency" value="INR">
+                            <div class="trade__select-trigger">
+                                <img src="assets/other/btc.svg" alt="Rupee" class="trade__currency-icon">
+                                <span>Rupee</span>
+                                <img
+                                    src="assets/other/chevron-down.svg"
+                                    alt="Chevron down"
+                                    class="trade__chevron-icon"
+                                >
+                            </div>
+                            <ul class="trade__select-options">
+                                <li class="trade__select-option" data-value="INR">
+                                    <img src="assets/other/rupee.svg"  alt="Rupee" class="trade__currency-icon">
+                                    <span>Rupee</span>
+                                </li>
+                                <li class="trade__select-option" data-value="BTC">
+                                    <img src="assets/other/btc.svg" alt="Bitcoin" class="trade__currency-icon">
+                                    <span>Bitcoin</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="trade__action-button">Sell Crypto</div>
                 </div>
             </div>
         </section>
@@ -264,7 +355,7 @@
                 <h2 class="learn-crypto__title">Let's Know How Crypto Works</h2>
                 <p class="learn-crypto__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br/> incididunt ut labore et dolore magna aliqua.</p>
                 <div class="learn-crypto__benefit-grid">
-                    <figure class="learn-crypto__benefit learn-crypto__benefit--highlighted">
+                    <figure class="learn-crypto__benefit">
                         <div class="learn-crypto__benefit-image-wrapper">
                             <img src="assets/benefits/graduation-cap.svg" alt="Graduation cap" class="learn-crypto__benefit-image">
                         </div>
@@ -366,55 +457,114 @@
                     <br/>
                     learning new tools and techniques.
                 </p>
-                <div class="faq__question-grid">
+                <div class="faq__question-container">
                     <article class="faq__question">
-                        <h3 class="faq__question-text">
-                            What is cryptocurrency?
-                        </h3>
-                        <p class="faq__question-answer">
-                            Cryptocurrency is a digital currency secured by cryptography and operating on decentralized networks.
-                        </p>
+                        <div class="faq__question-header">
+                            <h3 class="faq__question-text">
+                                What is cryptocurrency?
+                            </h3>
+                            <img
+                                src="assets/other/chevron-down.svg"
+                                alt="Chevron down"
+                                class="faq__question-icon"
+                            >
+                        </div>
+                        <div class="faq__question-content">
+                            <p class="faq__question-answer">
+                                Cryptocurrency is a digital currency secured by cryptography and operating on decentralized networks.
+                            </p>
+                        </div>
+
                     </article>
                     <article class="faq__question">
-                        <h3 class="faq__question-text">
-                            How do I start investing in cryptocurrency?
-                        </h3>
-                        <p class="faq__question-answer">
-                            Choose a reliable exchange, create an account, complete verification, deposit funds, and buy cryptocurrencies.
-                        </p>
+                        <div class="faq__question-header">
+                            <h3 class="faq__question-text">
+                                How do I start investing in cryptocurrency?
+                            </h3>
+                            <img
+                                src="assets/other/chevron-down.svg"
+                                alt="Chevron down"
+                                class="faq__question-icon"
+                            >
+                        </div>
+                        <div class="faq__question-content">
+                            <p class="faq__question-answer">
+                                Choose a reliable exchange, create an account, complete verification, deposit funds, and buy cryptocurrencies.
+                            </p>
+                        </div>
                     </article>
                     <article class="faq__question">
-                        <h3 class="faq__question-text">
-                            What is a blockchain?
-                        </h3>
-                        <p class="faq__question-answer">
-                            A blockchain is a distributed ledger that records transactions across a network of computers.
-                        </p>
+                        <div class="faq__question-header">
+                            <h3 class="faq__question-text">
+                                What is a blockchain?
+                            </h3>
+                            <img
+                                src="assets/other/chevron-down.svg"
+                                alt="Chevron down"
+                                class="faq__question-icon"
+                            >
+                        </div>
+                        <div class="faq__question-content">
+                            <p class="faq__question-answer">
+                                A blockchain is a distributed ledger that records transactions across a network of computers.
+                            </p>
+                        </div>
                     </article>
                     <article class="faq__question">
-                        <h3 class="faq__question-text">
-                            How do I keep my cryptocurrency secure?
-                        </h3>
-                        <p class="faq__question-answer">
-                            Use strong passwords, enable two-factor authentication, and store your crypto in reputable wallets.
-                        </p>
+                        <div class="faq__question-header">
+                            <h3 class="faq__question-text">
+                                How do I keep my cryptocurrency secure?
+                            </h3>
+                            <img
+                                src="assets/other/chevron-down.svg"
+                                alt="Chevron down"
+                                class="faq__question-icon"
+                            >
+                        </div>
+                        <div class="faq__question-content">
+                            <p class="faq__question-answer">
+                                Use strong passwords, enable two-factor authentication, and store your crypto in reputable wallets.
+                            </p>
+                        </div>
+
                     </article>
                     <article class="faq__question">
-                        <h3 class="faq__question-text">
-                            What is a cryptocurrency wallet?
-                        </h3>
-                        <p class="faq__question-answer">
-                            A cryptocurrency wallet is a digital tool for storing, sending, and receiving cryptocurrencies.
-                        </p>
+                        <div class="faq__question-header">
+                            <h3 class="faq__question-text">
+                                What is a cryptocurrency wallet?
+                            </h3>
+                            <img
+                                src="assets/other/chevron-down.svg"
+                                alt="Chevron down"
+                                class="faq__question-icon"
+                            >
+                        </div>
+                        <div class="faq__question-content">
+                            <p class="faq__question-answer">
+                                Cryptocurrency is a digital currency secured by cryptography and operating on decentralized networks.
+                            </p>
+                        </div>
+
                     </article>
                     <article class="faq__question">
-                        <h3 class="faq__question-text">
-                            What are the most popular cryptocurrencies?
-                        </h3>
-                        <p class="faq__question-answer">
-                            Popular cryptocurrencies include Bitcoin, Ethereum, Binance Coin, Cardano, and Solana.
-                        </p>
+                        <div class="faq__question-header">
+                            <h3 class="faq__question-text">
+                                What are the most popular cryptocurrencies?
+                            </h3>
+                            <img
+                                src="assets/other/chevron-down.svg"
+                                alt="Chevron down"
+                                class="faq__question-icon"
+                            >
+                        </div>
+                        <div class="faq__question-content">
+                            <p class="faq__question-answer">
+                                Popular cryptocurrencies include Bitcoin, Ethereum, Binance Coin, Cardano, and Solana.
+                            </p>
+                        </div>
+
                     </article>
+
                 </div>
             </div>
         </section>
