@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Andrii12390/crypto-web#readme",
   "devDependencies": {
+    "sass-embedded": "^1.87.0",
     "vite": "^6.3.3"
   },
   "dependencies": {

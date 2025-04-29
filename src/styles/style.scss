@@ -1,0 +1,13 @@
+@import 'normalize',
+'variables',
+'mixins',
+'global';
+
+@import 'blocks/header',
+'blocks/hero',
+'blocks/trade',
+'blocks/market',
+'blocks/learn-crypto',
+'blocks/faq',
+'blocks/support',
+'blocks/footer';
