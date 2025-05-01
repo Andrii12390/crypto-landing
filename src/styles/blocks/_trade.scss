@@ -11,6 +11,7 @@
     background-color: $color-light-alpha-05;
     padding: 3.5rem 8rem 5rem 8rem;
     width: fit-content;
+    max-width: 90%;
     margin-inline: auto;
     border-radius: 1.6rem;
   }
@@ -135,6 +136,7 @@
   &__currency-icon {
     width: 2rem;
   }
+
   &__action-button {
     @include font($color-dark, $text-md, 600);
     @include hover-button($color-primary-alpha-85, $color-primary-alpha-75);

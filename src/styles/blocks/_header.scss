@@ -5,7 +5,9 @@
   width: 100%;
   z-index: 10;
   font-size: $text-md;
-  padding: 2.4rem 4.8rem;
+  display: flex;
+  align-items: center;
+  padding-inline: 4.8rem;
   height: $header-height;
   border-bottom: 1px solid $color-light-alpha-35;
   background-color: rgba(16, 20, 40, 0.75);
@@ -24,6 +26,7 @@
 
   &__inner {
     position: relative;
+    width: 100%;
     z-index: 3;
     display: flex;
     align-items: center;
@@ -101,8 +104,8 @@
   }
 
   @media (max-width: $xs-screen) {
-    padding: 2rem;
-
+    padding-inline: 2rem;
+    height: $header-height-xs;
     &__more-icon {
       height: 2.4rem;
     }
